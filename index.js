@@ -6,6 +6,13 @@ const bodyParser = require('body-parser')
 const BlogPost = require('./models/BlogPost.js')
 const fileUpload = require('express-fileupload')
 
+const validateMiddleWare = (req,res,next)=>{
+    if(req.files == null || req.body.title == null || req.body.title == null){
+        return res.redirect('/posts/new')
+    }
+    next()
+}
+
 
 const app = new express()
 app.set('view engine', 'ejs')
@@ -14,6 +21,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
 app.use(fileUpload())
+app.use('/posts/store', validateMiddleWare)
 
 app.listen(4000, ()=>{
     console.log("App listening on port 4000")
