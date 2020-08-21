@@ -6,8 +6,10 @@ module.exports = (req,res)=>{
     image.mv(path.resolve(__dirname,'..','public/img',image.name),async (error)=>{
         await BlogPost.create({
             ...req.body,
-            image: '/img/' + image.name
+            image: '/img/' + image.name,
+            userid: req.session.userId
         })
+        console.log("req.body",req.body)
         res.redirect('/')
     })            
 }
