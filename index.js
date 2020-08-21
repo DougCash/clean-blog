@@ -5,6 +5,7 @@ const ejs = require('ejs')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload') 
+const flash = require('connect-flash')
 
 const newPostController = require('./controllers/newPost')
 const homeController = require('./controllers/home')
@@ -30,6 +31,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.set('view engine','ejs')
 
 app.use(express.static('public'))
+app.use(flash())
 
 app.listen(4000, ()=>{
     console.log('App listening on port 4000 ...')    
