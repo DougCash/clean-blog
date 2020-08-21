@@ -24,7 +24,7 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 
 app.use(fileUpload()) 
 
-mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://Doug:DJC22625@cluster0.fzufq.mongodb.net/blog_site', {useNewUrlParser: true});
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -33,8 +33,13 @@ app.set('view engine','ejs')
 app.use(express.static('public'))
 app.use(flash())
 
-app.listen(4000, ()=>{
-    console.log('App listening on port 4000 ...')    
+let port = process.env.PORT;
+if (port == null || port == ""){
+    port = 4000;
+}
+
+app.listen(port, ()=>{
+    console.log('App listening on port ' + port.toString() + ' ...')    
 })
 
 app.use('/posts/store',validateMiddleware) 
