@@ -2,6 +2,7 @@
 Node.js, Express and MongoDB Blog  
 Goal was to create a web app with CRUD functionality, that implemented user authentication and authorization, to allow the start of a 'blog'  
 Post submissions are accompanied by an image upload that acts as the background for a given post's page  
+Currently live at:  https://protected-thicket-88670.herokuapp.com/  
 
 # Technologies Used
 Web-App follows general MVC architecture  
