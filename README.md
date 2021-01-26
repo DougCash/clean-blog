@@ -1,7 +1,7 @@
 # clean-blog
-Node.js, Express and MongoDB Blog
-Goal was to create a web app with CRUD functionality, that implemented user authentication and authorization, to allow the start of a 'blog'.
-Post submissions are accompanied by an image upload that acts as the background for a given post's page.
+Node.js, Express and MongoDB Blog  
+Goal was to create a web app with CRUD functionality, that implemented user authentication and authorization, to allow the start of a 'blog'  
+Post submissions are accompanied by an image upload that acts as the background for a given post's page  
 
 # Technologies Used
 Web-App follows general MVC architecture  
@@ -12,6 +12,7 @@ Data persists through NoSQL cloud database on MongoDB Atlas
 Supports creating, reading, updating and deleting of data  
 Sign-up and Login required to create  
 Utilized middleware to handle authorization and authentication  
+Images are stored on Node.js server, and then references/link are stored in MongoDB  
 
 # To-do's
 When a user signs up, they should be signed in and redirected to home page  
